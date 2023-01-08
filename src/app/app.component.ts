@@ -29,10 +29,13 @@ export class AppComponent {
   sendPost = async () => {
     console.log('post');
     const res1 = await this.http
-      .post('https://3.89.254.248:8080/ns/login', {
-        email: 'DeepakArya0155@gmail.com',
-        password: 'Arya$786',
-      })
+      .post(
+        'https://ec2-18-205-185-140.compute-1.amazonaws.com:8080/ns/login',
+        {
+          email: 'DeepakArya0155@gmail.com',
+          password: 'Arya$786',
+        }
+      )
       // .subscribe(
       //   (res: any) => {
       //     console.log(res.user.email);
