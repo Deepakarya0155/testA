@@ -8,14 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TestA';
-
+  email = '';
   constructor(private http: HttpClient) {}
 
   sendGet = () => {
     console.log('a');
     const res1 = this.http
       .get('https://3.89.254.248:8080/ns/api/appDetails/152')
-      .subscribe((res) => {
+      .subscribe((res: any) => {
         console.log(res);
       });
     console.log(res1);
@@ -28,8 +28,9 @@ export class AppComponent {
         email: 'DeepakArya0155@gmail.com',
         password: 'Arya$786',
       })
-      .subscribe((res) => {
-        console.log(res);
+      .subscribe((res: any) => {
+        console.log(res.user.email);
+        this.email = res.user.email;
       });
     console.log(res1);
   };
