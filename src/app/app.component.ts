@@ -26,22 +26,23 @@ export class AppComponent {
     console.log(res1);
   };
 
-  sendPost = () => {
+  sendPost = async () => {
     console.log('post');
-    const res1 = this.http
+    const res1 = await this.http
       .post('https://3.89.254.248:8080/ns/login', {
         email: 'DeepakArya0155@gmail.com',
         password: 'Arya$786',
       })
-      .subscribe(
-        (res: any) => {
-          console.log(res.user.email);
-          this.email = res.user.email;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+      // .subscribe(
+      //   (res: any) => {
+      //     console.log(res.user.email);
+      //     this.email = res.user.email;
+      //   },
+      //   (err) => {
+      //     console.log(err);
+      //   }
+      // );
+      .toPromise();
     console.log(res1);
   };
 }
