@@ -28,7 +28,7 @@ export class AppComponent {
     console.log(res1);
   };
 
-  sendPost = async () => {
+  sendPost = () => {
     console.log('post');
 
     const head = new HttpHeaders();
@@ -36,7 +36,7 @@ export class AppComponent {
       'User-Agent',
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.70 Safari/537.36'
     );
-    const res1 = await this.http
+    this.http
       .post(
         'https://ec2-3-87-15-161.compute-1.amazonaws.com:8443/ns/login',
         {
@@ -47,16 +47,14 @@ export class AppComponent {
           headers: head,
         }
       )
-      // .subscribe(
-      //   (res: any) => {
-      //     console.log(res.user.email);
-      //     this.email = res.user.email;
-      //   },
-      //   (err) => {
-      //     console.log(err);
-      //   }
-      // );
-      .toPromise();
-    console.log(res1);
+      .subscribe(
+        (res: any) => {
+          console.log(res.user.email);
+          this.email = res.user.email;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   };
 }
