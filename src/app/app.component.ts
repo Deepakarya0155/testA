@@ -31,11 +31,11 @@ export class AppComponent {
   sendPost = () => {
     console.log('post');
 
-    const head = new HttpHeaders();
-    head.set(
-      'User-Agent',
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.70 Safari/537.36'
-    );
+    const head = new HttpHeaders({
+      'User-Agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.70 Safari/537.36',
+    });
+
     this.http
       .post(
         'https://ec2-3-87-15-161.compute-1.amazonaws.com:8443/ns/login',
